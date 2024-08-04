@@ -1,0 +1,166 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<h2
+  style="
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    background: linear-gradient(90deg, #007bff, #00d4ff, #ff6f61, #ffde59);
+    -webkit-background-clip: text;
+    color: transparent;
+  "
+>
+  Course Details
+</h2>
+
+<div style="margin-left: 2%">
+  <div
+    style="
+      width: 55%;
+      margin-left: 4%;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    "
+  >
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="searchUniversities()"
+      style="
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        flex: 1;
+        margin-right: 10px;
+      "
+    />
+    <button
+      (click)="searchUniversities()"
+      style="
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+      "
+    >
+      <i class="fas fa-search" style="margin-right: 8px"></i> Search
+    </button>
+  </div>
+
+  <table border="1" cellpadding="5" cellspacing="5" style="margin-left: 4%">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Location</th>
+        <th>Start</th>
+        <th>Length</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        matTooltip="{{ university.CourseDescription }}"
+        *ngFor="let university of universitys"
+      >
+        <td>
+          <button
+            (click)="goToUpdateComponent(university.university_id)"
+            style="
+              font-size: 16px;
+              color: #0cd424;
+              border: 0px;
+              background-color: white;
+              cursor: pointer;
+              display: inline-flex;
+              align-items: center;
+            "
+          >
+            <i class="fas fa-edit" style="margin-right: 8px"></i>
+          </button>
+          <button
+            (click)="deleteuniversity(university.university_id)"
+            style="
+              font-size: 16px;
+              color: #eb0909;
+              border: 0px;
+              background-color: white;
+              cursor: pointer;
+              display: inline-flex;
+              align-items: center;
+            "
+          >
+            <i class="fas fa-trash" style="margin-right: 8px"></i>
+          </button>
+
+          {{ university.CourseName }}
+        </td>
+
+        <td>
+          {{ university.Country }}, {{ university.City }},
+          {{ university.University }}
+        </td>
+        <td>{{ university.StartDate }}</td>
+
+        <td>{{ calculateLength(university.StartDate, university.EndDate) }}</td>
+        <td>
+          {{ getCurrencySymbol(university.Currency) }} {{ university.Price }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+    "
+  >
+    <button
+      (click)="prevpageChanged(currentPage)"
+      [disabled]="currentPage === 1"
+      style="
+        margin-right: 2px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      "
+    >
+      Previous
+    </button>
+
+    <button
+      (click)="pageChanged(currentPage)"
+      [disabled]="currentPage * itemsPerPage >= totalItems"
+      style="
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      "
+    >
+      Next
+    </button>
+  </div>
+</div>

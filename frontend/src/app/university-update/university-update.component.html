@@ -1,0 +1,209 @@
+<!-- edit-course.component.html -->
+<div class="edit-course-container">
+  <mat-card class="edit-course-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Edit Course</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
+        <div class="form-row">
+          Course Name
+          <mat-form-field appearance="outline">
+            <mat-label>{{ this.university_new.Course }}</mat-label>
+            <input matInput id="CourseName" name="CourseName" disabled />
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          University
+          <mat-form-field appearance="outline">
+            <mat-label>{{ this.university_new.Name }}</mat-label>
+            <input matInput id="University" name="University" disabled />
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          Country
+          <mat-form-field appearance="outline">
+            <mat-label>{{ this.university_new.Country }}</mat-label>
+            <input matInput id="Country" name="Country" disabled />
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          City
+          <mat-form-field appearance="outline">
+            <mat-label>{{ this.university_new.City }}</mat-label>
+            <input matInput id="City" name="City" disabled />
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          Price
+          <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input
+              matInput
+              type="number"
+              id="Price"
+              name="Price"
+              [(ngModel)]="university_new.Price"
+              required
+              min="0"
+              #price="ngModel"
+            />
+            <mat-select
+              placeholder="Currency"
+              id="Currency"
+              [(ngModel)]="university_new.Currency"
+              name="Currency"
+              matPrefix
+              class="custom-placeholder"
+            >
+              <mat-option value="USD">$</mat-option>
+              <mat-option value="EUR">€</mat-option>
+              <mat-option value="GBP">£</mat-option>
+              <mat-option value="INR">₹</mat-option>
+              <mat-option value="JPY">¥</mat-option>
+              <mat-option value="AUD">A$</mat-option>
+              <mat-option value="CAD">C$</mat-option>
+              <mat-option value="CHF">CHF</mat-option>
+              <mat-option value="CNY">¥</mat-option>
+              <mat-option value="SEK">kr</mat-option>
+              <mat-option value="NZD">NZ$</mat-option>
+              <mat-option value="BYR">Br</mat-option>
+              <mat-option value="MNT">₮</mat-option>
+              <mat-option value="IDR">Rp</mat-option>
+              <mat-option value="PHP">₱</mat-option>
+              <mat-option value="BAM">KM</mat-option>
+              <mat-option value="DOP">RD$</mat-option>
+              <mat-option value="BRL">R$</mat-option>
+              <mat-option value="ARS">AR$</mat-option>
+              <mat-option value="CLP">CLP$</mat-option>
+              <mat-option value="COP">COL$</mat-option>
+              <mat-option value="MXN">Mex$</mat-option>
+              <mat-option value="PEN">S/</mat-option>
+              <mat-option value="UYU">$U</mat-option>
+              <mat-option value="VEF">Bs F</mat-option>
+              <mat-option value="VND">₫</mat-option>
+              <mat-option value="THB">฿</mat-option>
+              <mat-option value="SGD">S$</mat-option>
+              <mat-option value="MYR">RM</mat-option>
+              <mat-option value="KRW">₩</mat-option>
+              <mat-option value="HKD">HK$</mat-option>
+              <mat-option value="ZAR">R</mat-option>
+              <mat-option value="NGN">₦</mat-option>
+              <mat-option value="EGP">E£</mat-option>
+              <mat-option value="ILS">₪</mat-option>
+              <mat-option value="SAR">SR</mat-option>
+              <mat-option value="AED">د.إ</mat-option>
+              <mat-option value="RUB">₽</mat-option>
+              <mat-option value="TRY">₺</mat-option>
+              <mat-option value="PKR">₨</mat-option>
+              <mat-option value="BDT">৳</mat-option>
+              <mat-option value="LKR">Rs</mat-option>
+              <mat-option value="NPR">रू</mat-option>
+              <mat-option value="CZK">Kč</mat-option>
+              <mat-option value="PLN">zł</mat-option>
+              <mat-option value="HUF">Ft</mat-option>
+              <mat-option value="RON">lei</mat-option>
+              <mat-option value="BGN">лв</mat-option>
+              <mat-option value="HRK">kn</mat-option>
+              <mat-option value="ISK">kr</mat-option>
+              <mat-option value="DKK">kr</mat-option>
+              <mat-option value="NOK">kr</mat-option>
+              <mat-option value="EEK">kr</mat-option>
+              <mat-option value="LVL">Ls</mat-option>
+              <mat-option value="LTL">Lt</mat-option>
+              <mat-option value="RSD">дин.</mat-option>
+              <mat-option value="UAH">₴</mat-option>
+              <mat-option value="GEL">₾</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="startPicker"
+              [(ngModel)]="university_new.StartDate"
+              name="startDate"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="startPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="endPicker"
+              [(ngModel)]="university_new.EndDate"
+              name="endDate"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Course Description</mat-label>
+          <textarea
+            matInput
+            id="CourseDescription"
+            name="CourseDescription"
+            [(ngModel)]="university_new.CourseDescription"
+            rows="4"
+          ></textarea>
+        </mat-form-field>
+
+        <div class="button-row">
+          <!-- Update Button with Inline CSS -->
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="updateData(university_new.university_id)"
+            style="
+              background-color: #2196f3;
+              color: white;
+              border-radius: 4px;
+              padding: 10px 20px;
+              margin-right: 10px;
+            "
+          >
+            Update
+          </button>
+
+          <!-- Cancel Button with Inline CSS -->
+          <a
+            mat-stroked-button
+            color="warn"
+            routerLink="/list"
+            style="
+              text-decoration: none;
+              border-color: #f44336;
+              color: #f44336;
+              border-radius: 4px;
+              padding: 10px 20px;
+            "
+          >
+            Cancel
+          </a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

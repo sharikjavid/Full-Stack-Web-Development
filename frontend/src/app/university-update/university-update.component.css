@@ -1,0 +1,29 @@
+/* Border */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgb(1, 1, 1);
+}
+/* Font color */
+input.mat-input-element {
+  color: rgb(0, 0, 0);
+}
+
+.mat-mdc-card-content {
+  padding-left: 33%;
+}
+.mat-mdc-select-trigger .ng-tns-c32-5 {
+  margin-left: 22px !important;
+}
+
+.mat-mdc-form-field {
+  width: 43%;
+}
+
+.mat-form-field-hide-placeholder .mat-mdc-select-placeholder {
+  color: rgb(59, 3, 3) !important;
+
+  display: block;
+  font-size: 12px;
+  /* border-right: 0.1px solid; */
+  padding: 2px;
+  /* background: initial; */
+}

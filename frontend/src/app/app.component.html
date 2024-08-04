@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+
+
+  <div style="  margin-top: 33px;
+    margin-left: 6%; display: flex; align-items: center;">
+    <button mat-flat-button (click)="goToListComponent()" 
+        style="margin-right: 10px; padding: 10px 20px; font-size: 16px; color: #ffffff; background: linear-gradient(90deg, #007bff, #00d4ff); border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        Home
+        <div style="content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 50%; background: linear-gradient(90deg, #007bff, #00d4ff); opacity: 0.3; filter: blur(5px); transform: scaleY(-1); border-radius: 5px;"></div>
+    </button>
+    <button mat-flat-button (click)="goToCreateComponent()" 
+        style="padding: 10px 20px; font-size: 16px; color: #ffffff; background: linear-gradient(90deg, #007bff, #00d4ff); border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;">
+        Create University
+        <div style="content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 50%; background: linear-gradient(90deg, #007bff, #00d4ff); opacity: 0.3; filter: blur(5px); transform: scaleY(-1); border-radius: 5px;"></div>
+    </button>
+</div>
+
+ 
+ 
+  
+ 
+
+  <!-- <app-university-update></app-university-update> -->
+  <router-outlet></router-outlet>
+</body>
+</html>

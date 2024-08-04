@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": " https://backend-1-pyuh.onrender.com",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
+  

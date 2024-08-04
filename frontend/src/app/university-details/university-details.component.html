@@ -1,0 +1,30 @@
+<div style="margin-left: 10%">
+  <h2 style="margin-left: 16%">university Details</h2>
+
+  <table border="1" cellpadding="5" cellspacing="5" style="margin-left: 4%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Manager</th>
+        <th>Action1</th>
+        <th>Action2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <button (click)="deleteuniversity(university_new.university_id)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button (click)="goToUpdateComponent(university_new.university_id)">
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
